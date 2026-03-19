@@ -598,41 +598,65 @@ export default function ChatPane() {
         </div>
       </div>
 
-      {/* Context-aware action strip */}
+      {/* Analyse this screen — primary CTA */}
       {ctx && (
         <div style={{
-          display: 'flex', gap: 6, padding: '6px 12px', flexWrap: 'wrap',
-          borderBottom: '1px solid var(--border)', background: 'var(--bg2)', flexShrink: 0,
+          padding: '10px 12px',
+          borderBottom: '1px solid var(--border)',
+          background: 'var(--bg2)',
+          flexShrink: 0,
         }}>
           <button
             onClick={() => send('analyse this screen')}
             style={{
-              fontSize: 10, fontWeight: 700, padding: '3px 10px',
-              border: '1px solid var(--blue)', borderRadius: 'var(--r)',
-              background: 'var(--blue-bg)', color: 'var(--blue)',
-              cursor: 'pointer', fontFamily: 'var(--font)',
+              width: '100%',
+              display: 'flex', alignItems: 'center', gap: 10,
+              padding: '9px 12px',
+              border: '1.5px solid var(--blue)',
+              borderRadius: 'var(--r)',
+              background: 'var(--blue-bg)',
+              cursor: 'pointer',
+              fontFamily: 'var(--font)',
+              textAlign: 'left',
               transition: 'all var(--transition)',
             }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'var(--blue)'; e.currentTarget.querySelectorAll('span').forEach(s => s.style.color = '#fff') }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'var(--blue-bg)'; e.currentTarget.querySelectorAll('span').forEach(s => s.style.color = '') }}
           >
-            🔍 Analyse + Recommend
+            <span style={{ fontSize: 16, lineHeight: 1, flexShrink: 0 }}>🔍</span>
+            <span style={{ flex: 1 }}>
+              <span style={{ display: 'block', fontSize: 11, fontWeight: 700, color: 'var(--blue)', lineHeight: 1.3 }}>
+                Analyse this screen
+              </span>
+              <span style={{ display: 'block', fontSize: 10, color: 'var(--text3)', marginTop: 2, lineHeight: 1.3 }}>
+                Immediate actions · Best practices · Watch for
+              </span>
+            </span>
+            <span style={{ fontSize: 11, color: 'var(--blue)', fontWeight: 700, flexShrink: 0 }}>→</span>
           </button>
-          {ctx.actions.map(a => (
-            <button
-              key={a.nav}
-              onClick={() => handleAction(a)}
-              style={{
-                fontSize: 10, fontWeight: 600, padding: '3px 10px',
-                border: '1px solid var(--border)', borderRadius: 'var(--r)',
-                background: 'var(--bg)', color: 'var(--text2)',
-                cursor: 'pointer', fontFamily: 'var(--font)',
-                transition: 'all var(--transition)',
-              }}
-              onMouseEnter={e => { e.target.style.background = 'var(--blue)'; e.target.style.color = '#fff' }}
-              onMouseLeave={e => { e.target.style.background = 'var(--bg)'; e.target.style.color = 'var(--text2)' }}
-            >
-              {a.label}
-            </button>
-          ))}
+
+          {/* Quick nav links — secondary row */}
+          {ctx.actions.length > 0 && (
+            <div style={{ display: 'flex', gap: 5, marginTop: 7, flexWrap: 'wrap' }}>
+              {ctx.actions.map(a => (
+                <button
+                  key={a.nav}
+                  onClick={() => handleAction(a)}
+                  style={{
+                    fontSize: 10, fontWeight: 600, padding: '3px 9px',
+                    border: '1px solid var(--border)', borderRadius: 'var(--r)',
+                    background: 'var(--bg)', color: 'var(--text3)',
+                    cursor: 'pointer', fontFamily: 'var(--font)',
+                    transition: 'all var(--transition)',
+                  }}
+                  onMouseEnter={e => { e.target.style.borderColor = 'var(--blue)'; e.target.style.color = 'var(--blue)' }}
+                  onMouseLeave={e => { e.target.style.borderColor = 'var(--border)'; e.target.style.color = 'var(--text3)' }}
+                >
+                  {a.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
