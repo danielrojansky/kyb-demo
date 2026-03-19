@@ -1,7 +1,7 @@
 import { useApp } from '../../context/AppContext'
 
 export default function TopBar() {
-  const { darkMode, toggleDark, setCmdOpen, navigate, setTourActive, setTourStep } = useApp()
+  const { darkMode, toggleDark, setCmdOpen, navigate, setTourActive, setTourStep, sidebarOpen, setSidebarOpen } = useApp()
 
   const startTour = () => {
     setTourStep(0)
@@ -12,6 +12,15 @@ export default function TopBar() {
   return (
     <div className="topbar">
       <div className="topbar-left">
+        {/* Hamburger — mobile only */}
+        <button
+          className="hamburger"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          aria-label="Toggle menu"
+        >
+          {sidebarOpen ? '✕' : '☰'}
+        </button>
+
         <div className="logo" style={{ cursor: 'pointer' }} onClick={() => navigate('home')}>
           Venn<span>.</span>Analyzer
         </div>
@@ -39,16 +48,10 @@ export default function TopBar() {
       <div className="topbar-right">
         <button
           onClick={startTour}
-          style={{
-            fontSize: 11, fontWeight: 700, padding: '5px 12px',
-            border: '1px solid var(--blue)', borderRadius: 'var(--r)',
-            background: 'var(--blue-bg)', color: 'var(--blue)',
-            cursor: 'pointer', fontFamily: 'var(--font)',
-            transition: 'all var(--transition)', whiteSpace: 'nowrap',
-          }}
+          className="cco-demo-btn"
           title="CCO walkthrough demo"
         >
-          ▶ CCO Demo
+          ▶ <span className="cco-demo-label">CCO Demo</span>
         </button>
         <button
           className="icon-btn"
@@ -67,7 +70,7 @@ export default function TopBar() {
         </button>
         <div className="analyst-chip">
           <div className="avatar">SL</div>
-          Sara Levy · Senior Analyst
+          <span className="analyst-name">Sara Levy · Senior Analyst</span>
         </div>
         <div className="live-dot" title="Live · 5 providers synced" />
       </div>

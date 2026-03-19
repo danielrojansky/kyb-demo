@@ -4,10 +4,15 @@ import ChatPane from './ChatPane'
 import LogPane from './LogPane'
 
 export default function DetailPanel() {
-  const { detailTab, setDetailTab, auditLog } = useApp()
+  const { detailTab, setDetailTab, auditLog, detailOpen, setDetailOpen } = useApp()
 
   return (
-    <div className="detail-panel">
+    <div className={`detail-panel${detailOpen ? ' mobile-open' : ''}`}>
+      {/* Mobile drag handle */}
+      <div className="detail-handle" onClick={() => setDetailOpen(false)}>
+        <div className="detail-handle-bar" />
+      </div>
+
       <div className="detail-tabs">
         <div
           className={`detail-tab${detailTab === 'history' ? ' active' : ''}`}

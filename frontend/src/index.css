@@ -537,3 +537,142 @@ a { color: var(--blue); text-decoration: none; }
 
 /* ── STEP CONTROLS ── */
 .step-ctrl { display: flex; gap: 8px; margin-top: 12px; }
+
+/* ── RESPONSIVE SHELL (desktop defaults) ── */
+.hamburger      { display: none; }
+.mobile-ai-fab  { display: none; }
+.detail-handle  { display: none; }
+.cco-demo-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border: 1px solid var(--blue); border-radius: var(--r);
+  background: var(--blue-bg); color: var(--blue);
+  cursor: pointer; font-family: var(--font);
+  transition: all var(--transition); white-space: nowrap;
+  display: flex; align-items: center; gap: 4px;
+}
+.sidebar-backdrop {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 249;
+  animation: fadeIn .15s ease;
+}
+.sidebar-backdrop.show { display: block; }
+
+/* ── MOBILE (≤ 767px) ── */
+@media (max-width: 767px) {
+
+  /* Variables */
+  :root {
+    --sidebar-w: 0px;
+    --detail-w:  0px;
+  }
+
+  /* ── TopBar ── */
+  .hamburger {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; flex-shrink: 0;
+    background: none; border: 1px solid var(--border);
+    border-radius: var(--r); cursor: pointer;
+    color: var(--text2); font-size: 17px;
+    transition: all var(--transition);
+  }
+  .metrics       { display: none !important; }
+  .env-badge     { display: none !important; }
+  .analyst-name  { display: none; }
+  .cco-demo-btn  { display: none; }
+  .topbar-left   { gap: 10px; }
+  .topbar-right  { gap: 6px; }
+
+  /* ── Sidebar — off-canvas drawer ── */
+  .sidebar {
+    position: fixed;
+    top: var(--topbar-h); left: 0; bottom: 0;
+    z-index: 250;
+    width: 240px !important;
+    transform: translateX(-100%);
+    transition: transform 230ms cubic-bezier(.4,0,.2,1);
+    box-shadow: var(--shadow-lg);
+  }
+  .sidebar.mobile-open { transform: translateX(0); }
+
+  /* ── Detail panel — bottom sheet ── */
+  .detail-panel {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 72vh;
+    z-index: 250;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    border-radius: 14px 14px 0 0;
+    transform: translateY(100%);
+    transition: transform 230ms cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 -4px 24px rgba(0,0,0,.15);
+  }
+  .detail-panel.mobile-open { transform: translateY(0); }
+  .detail-handle {
+    display: flex; justify-content: center;
+    padding: 8px 0 2px; flex-shrink: 0; cursor: pointer;
+  }
+  .detail-handle-bar {
+    width: 36px; height: 4px;
+    background: var(--border2); border-radius: 2px;
+  }
+
+  /* ── FAB ── */
+  .mobile-ai-fab {
+    display: flex; align-items: center; justify-content: center;
+    position: fixed; bottom: 20px; right: 16px;
+    z-index: 240;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--blue); color: #fff;
+    border: none; font-size: 22px; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37,99,235,.45);
+    transition: transform var(--transition), background var(--transition);
+  }
+  .mobile-ai-fab:active { transform: scale(.92); }
+
+  /* ── Main content ── */
+  .main-content { padding: 14px 12px; }
+
+  /* ── Grids ── */
+  .stat-row       { flex-wrap: wrap; }
+  .stat-cell      { flex: 1 1 calc(50% - 4px); min-width: 0; }
+  .two-col        { grid-template-columns: 1fr; }
+  .countdown-row  { flex-wrap: wrap; }
+  .countdown-cell { flex: 1 1 calc(50% - 4px); }
+
+  /* ── Typography ── */
+  .page-title { font-size: 16px; }
+  .page-sub   { font-size: 12px; }
+
+  /* ── Buttons ── */
+  .btn    { padding: 6px 11px; font-size: 11.5px; }
+  .btn-sm { padding: 4px 9px;  font-size: 10.5px; }
+  .actions { gap: 6px; }
+
+  /* ── Notification — full-width above FAB ── */
+  .notif { right: 12px; left: 12px; bottom: 84px; max-width: none; }
+
+  /* ── Command palette — edge-to-edge ── */
+  .cmd-backdrop { padding-top: 56px; padding-left: 12px; padding-right: 12px; }
+  .cmd-palette  { width: 100%; max-width: 100%; }
+
+  /* ── Priority item — disable hover indent on touch ── */
+  .priority-item:hover { padding-left: 0; margin: 0; }
+
+  /* ── Page header ── */
+  .page-hdr { margin-bottom: 14px; }
+
+  /* ── No-PII bar ── */
+  .no-pii-bar { font-size: 10.5px; padding: 6px 10px; }
+
+  /* ── Signals — allow narrower tiles on mobile ── */
+  .sig { min-width: 64px; padding: 6px 8px; }
+
+  /* ── Entity graph — shorter on mobile ── */
+  .graph-wrap { height: 320px; }
+
+  /* ── Tour tooltip — edge-safe ── */
+  .detail-handle:active .detail-handle-bar { background: var(--blue); }
+}

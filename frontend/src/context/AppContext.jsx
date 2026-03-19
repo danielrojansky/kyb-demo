@@ -12,6 +12,8 @@ export function AppProvider({ children }) {
   const [cmdOpen, setCmdOpen] = useState(false)
   const [tourActive, setTourActive] = useState(false)
   const [tourStep, setTourStep] = useState(0)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [detailOpen, setDetailOpen] = useState(false)
   const logSeqRef = useRef(1)
   const notifTimerRef = useRef(null)
 
@@ -24,6 +26,7 @@ export function AppProvider({ children }) {
 
   const navigate = useCallback((page) => {
     setCurrentPage(page)
+    setSidebarOpen(false)
     logAction('Navigated to: ' + page, '', 'navigate')
   }, [logAction])
 
@@ -59,6 +62,8 @@ export function AppProvider({ children }) {
       cmdOpen, setCmdOpen,
       tourActive, setTourActive,
       tourStep, setTourStep,
+      sidebarOpen, setSidebarOpen,
+      detailOpen, setDetailOpen,
       showHistory,
     }}>
       {children}

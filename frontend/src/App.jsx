@@ -1,4 +1,17 @@
 import { useApp } from './context/AppContext'
+
+function MobileAIFab() {
+  const { detailOpen, setDetailOpen, setDetailTab } = useApp()
+  return (
+    <button
+      className="mobile-ai-fab"
+      onClick={() => { setDetailOpen(!detailOpen); if (!detailOpen) setDetailTab('chat') }}
+      aria-label="AI assistant"
+    >
+      {detailOpen ? '✕' : '💬'}
+    </button>
+  )
+}
 import TopBar from './components/layout/TopBar'
 import Sidebar from './components/layout/Sidebar'
 import DetailPanel from './components/detail/DetailPanel'
@@ -71,6 +84,7 @@ export default function App() {
           <DetailPanel />
         </div>
       </div>
+      <MobileAIFab />
       <DemoTour />
       <CommandPalette />
       <Notification />
