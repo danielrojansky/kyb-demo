@@ -44,7 +44,7 @@ export default function Audit() {
 
       <div className="card fade-in">
         <div className="card-header"><div><div className="card-title">Program Effectiveness Dashboard</div><div className="card-sub">Ready for examiner review at any time — no last-minute scramble</div></div></div>
-        <div className="stat-row">
+        <div className="stat-row" data-tour="audit-score">
           <div className="stat-cell"><div className="stat-val green" style={{ fontSize: 20 }}>94.2%</div><div className="stat-label">Alert disposition accuracy</div></div>
           <div className="stat-cell"><div className="stat-val green" style={{ fontSize: 20 }}>98.7%</div><div className="stat-label">SARs filed on time</div></div>
           <div className="stat-cell"><div className="stat-val green" style={{ fontSize: 20 }}>100%</div><div className="stat-label">Sanctions screens current</div></div>

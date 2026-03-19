@@ -54,7 +54,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="card">
+      <div className="card" data-tour="priority-queue">
         <div className="card-header">
           <div>
             <div className="card-title">🚨 Priority Queue — Requires Your Decision</div>

@@ -36,7 +36,7 @@ export default function Pattern() {
           <div className="alert-icon">🧠</div>
           <div><strong>Institutional Memory Pattern Match</strong> — This entity's profile matches a cluster of 12 entities that preceded SAR filings in Q3. No single provider flagged this. Only accumulated decision history surfaces it.</div>
         </div>
-        <div className="reasoning-box">
+        <div className="reasoning-box" data-tour="pattern-reasoning">
           <div className="reasoning-hdr">⚡ Pattern Reasoning</div>
           <div className="reasoning-text">
             Individual provider signals are unremarkable. Sumsub and Bridger clear, ComplyAdvantage shows a low-confidence PEP-adjacent connection — normally a dismiss candidate. However, the reasoning engine identified a <span className="flag">structural pattern match</span>: Nexus Trading exhibits the same sequence as 12 entities in the Q3 pre-SAR cluster: <span className="h">(1) clean onboarding, (2) recurring low-confidence hits, (3) analyst dismissals without escalation, (4) gradual transaction volume increase, (5) sudden high-value cross-border transfer</span>. Nexus is at stage 3. The Q3 cluster averaged 58 days between stage 3 and a SAR-triggering event. This is not a rule violation. It is a <span className="warn">learned risk trajectory</span> that warrants enhanced monitoring before the next dismissal.

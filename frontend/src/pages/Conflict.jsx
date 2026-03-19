@@ -50,7 +50,7 @@ export default function Conflict() {
           <div className="alert-icon">⚠</div>
           <div><strong>Conflict Detected</strong> — Sumsub + Elliptic flag vs. ComplyAdvantage clean. Reasoning engine identified root cause: ComplyAdvantage screen predates UBO change by 11 days.</div>
         </div>
-        <div className="reasoning-box">
+        <div className="reasoning-box" data-tour="technova-reasoning">
           <div className="reasoning-hdr">⚡ Reasoning Output</div>
           <div className="reasoning-text">
             Three providers ran on TechNova FZE. <span className="flag">Sumsub flagged a UBO structure change</span> — beneficial owner Faisal Al-Rashid (26%) was added 3 weeks ago with no corresponding re-screen trigger. <span className="flag">Elliptic scores the associated wallet at 8.4/10</span>, citing indirect exposure to a mixing service used in 2 flagged transactions. <span className="ok">ComplyAdvantage is clean</span> — but its last screen was <span className="h">11 days ago</span>, predating the UBO addition. The conflict is resolvable: CA's result is stale, not contradictory. Recommend immediate CA re-screen with new UBO data, transaction hold pending result, and escalation given wallet exposure severity.
@@ -65,7 +65,7 @@ export default function Conflict() {
       </div>
 
       {/* Meridian */}
-      <div className="card clickable fade-in" onClick={() => showHistory('Meridian Capital')}>
+      <div className="card clickable fade-in" data-tour="meridian-card" onClick={() => showHistory('Meridian Capital')}>
         <div className="card-header">
           <div>
             <div className="card-title">

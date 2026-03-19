@@ -18,7 +18,7 @@ export default function Escalation() {
         <div className="page-sub">Cases escalated to senior analysts — with full reasoning context pre-attached</div>
       </div>
 
-      <div className="card fade-in">
+      <div className="card fade-in" data-tour="escalation-first">
         <div className="card-header">
           <div><div className="card-title">TechNova FZE</div><div className="card-sub">Escalated by: Auto-engine · 14 minutes ago · Assigned to: Sara Levy</div></div>
           <div className="badge badge-high">High</div>

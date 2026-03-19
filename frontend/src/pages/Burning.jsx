@@ -132,12 +132,13 @@ export default function Burning() {
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {visible.map(item => {
+          {visible.map((item, idx) => {
             const sev = SEV_STYLE[item.severity] || SEV_STYLE.low
             return (
               <div
                 key={item.id}
                 className="card"
+                {...(idx === 0 ? { 'data-tour': 'burning-first' } : {})}
                 style={{ padding: '14px 16px', borderLeft: `3px solid ${sev.color}` }}
               >
                 <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>

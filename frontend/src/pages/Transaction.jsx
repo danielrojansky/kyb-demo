@@ -42,7 +42,7 @@ export default function Transaction() {
           <div className="alert-icon">⚠</div>
           <div><strong>Behavioural Anomaly</strong> — €47,000 across 9 transactions in 4 hours. 30-day average: €4,100/month. Structuring pattern possible (9 transactions below €5,000 threshold in 4 hours).</div>
         </div>
-        <div className="reasoning-box">
+        <div className="reasoning-box" data-tour="txn-reasoning">
           <div className="reasoning-hdr">⚡ Real-time Reasoning</div>
           <div className="reasoning-text">
             Ibrahim Al-Hassan's baseline risk profile is <span className="ok">2.1/10 — low</span>, established over 4 months of normal activity. Today's activity deviates sharply: <span className="flag">11× his 30-day transaction average</span>, all directed to a wallet address first seen 6 days ago. Elliptic rates the destination wallet at <span className="warn">4.2/10</span> — elevated but not conclusive. The structuring pattern (9 transactions, all €4,800–€4,950) is the most significant signal. Reasoning engine cross-referenced: <span className="h">3 prior cases with identical structuring signatures</span> resulted in SARs. Recommended action: place a 24-hour review hold, send automated RFI to customer, and escalate to AML analyst for manual review within 2 hours.
