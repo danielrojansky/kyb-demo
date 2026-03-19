@@ -24,6 +24,8 @@ import Audit        from './pages/Audit'
 import AuditLog     from './pages/AuditLog'
 import EntityGraph  from './pages/EntityGraph'
 import Burning      from './pages/Burning'
+import Clients      from './pages/Clients'
+import DemoTour     from './components/DemoTour'
 
 const PAGES = {
   home:        Home,
@@ -45,6 +47,7 @@ const PAGES = {
   auditlog:    AuditLog,
   entitygraph: EntityGraph,
   burning:     Burning,
+  clients:     Clients,
 }
 
 function PageContent() {
@@ -68,6 +71,7 @@ export default function App() {
           <DetailPanel />
         </div>
       </div>
+      <DemoTour />
       <CommandPalette />
       <Notification />
     </div>

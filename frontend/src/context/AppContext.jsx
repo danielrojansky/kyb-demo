@@ -10,6 +10,8 @@ export function AppProvider({ children }) {
   const [detailTab, setDetailTab] = useState('history')
   const [notification, setNotification] = useState(null)
   const [cmdOpen, setCmdOpen] = useState(false)
+  const [tourActive, setTourActive] = useState(false)
+  const [tourStep, setTourStep] = useState(0)
   const logSeqRef = useRef(1)
   const notifTimerRef = useRef(null)
 
@@ -55,6 +57,8 @@ export function AppProvider({ children }) {
       notification,
       notify,
       cmdOpen, setCmdOpen,
+      tourActive, setTourActive,
+      tourStep, setTourStep,
       showHistory,
     }}>
       {children}

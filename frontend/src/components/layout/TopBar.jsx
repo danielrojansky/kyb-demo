@@ -1,7 +1,13 @@
 import { useApp } from '../../context/AppContext'
 
 export default function TopBar() {
-  const { darkMode, toggleDark, setCmdOpen, navigate } = useApp()
+  const { darkMode, toggleDark, setCmdOpen, navigate, setTourActive, setTourStep } = useApp()
+
+  const startTour = () => {
+    setTourStep(0)
+    setTourActive(true)
+    navigate('home')
+  }
 
   return (
     <div className="topbar">
@@ -31,6 +37,19 @@ export default function TopBar() {
       </div>
 
       <div className="topbar-right">
+        <button
+          onClick={startTour}
+          style={{
+            fontSize: 11, fontWeight: 700, padding: '5px 12px',
+            border: '1px solid var(--blue)', borderRadius: 'var(--r)',
+            background: 'var(--blue-bg)', color: 'var(--blue)',
+            cursor: 'pointer', fontFamily: 'var(--font)',
+            transition: 'all var(--transition)', whiteSpace: 'nowrap',
+          }}
+          title="CCO walkthrough demo"
+        >
+          ▶ CCO Demo
+        </button>
         <button
           className="icon-btn"
           title="Search (⌘K)"

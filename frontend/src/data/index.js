@@ -182,7 +182,10 @@ export const botKB = [
 // ── NAV STRUCTURE ─────────────────────────────────────────────
 export const navSections = [
   {
-    items: [{ id: 'home', icon: '🏠', label: 'Home' }],
+    items: [
+      { id: 'home',    icon: '🏠', label: 'Home' },
+      { id: 'clients', icon: '🏢', label: 'Client Registry', badge: '8', badgeColor: '' },
+    ],
   },
   {
     label: 'Use Cases',
@@ -232,6 +235,7 @@ export const navSections = [
 // ── COMMAND PALETTE ENTRIES ───────────────────────────────────
 export const cmdEntries = [
   { icon: '🏠', title: 'Home Dashboard',          sub: 'Morning brief, priority queue',                    page: 'home' },
+  { icon: '🏢', title: 'Client Registry',         sub: 'All entities — risk status, signals, case links',  page: 'clients' },
   { icon: '⚡', title: 'Provider Conflict',        sub: 'TechNova FZE, Meridian Capital',                   page: 'conflict' },
   { icon: '🧩', title: 'Onboarding Flow',          sub: 'Zero-touch KYB step-by-step',                      page: 'onboarding' },
   { icon: '💸', title: 'Transaction Screening',    sub: 'Ibrahim Al-Hassan structuring pattern',            page: 'transaction' },
